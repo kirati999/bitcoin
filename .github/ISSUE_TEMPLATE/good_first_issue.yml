@@ -1,44 +1,32 @@
-name: Good First Issue
-description: (Regular devs only) Suggest a new good first issue
+name: Good first issue
+description: Good for newcomers
 labels: [good first issue]
 body:
   - type: markdown
     attributes:
       value: |
-        Please add the label "good first issue" manually before or after opening
-
-        A good first issue is an uncontroversial issue, that has a relatively unique and obvious solution
-
-        Motivate the issue and explain the solution briefly
+        ขอขอบคุณที่ช่วยพัฒนาโปรเจกต์นี้! 🙏
   - type: textarea
-    id: motivation
+    id: description
     attributes:
-      label: Motivation
-      description: Motivate the issue
+      label: คำอธิบายปัญหา
+      description: กรุณาอธิบายปัญหาหรือฟีเจอร์ที่คุณต้องการเสนอ
+      placeholder: อธิบายรายละเอียดที่นี่...
     validations:
       required: true
   - type: textarea
-    id: solution
+    id: steps
     attributes:
-      label: Possible solution
-      description: Describe a possible solution
+      label: ขั้นตอนที่แนะนำให้ทำ
+      description: กรุณาระบุขั้นตอนในการแก้ไขปัญหานี้ (ถ้ามี)
+      placeholder: 1. ...\n2. ...\n3. ...
     validations:
       required: false
-  - type: textarea
-    id: useful-skills
+  - type: input
+    id: difficulty
     attributes:
-      label: Useful Skills
-      description: For example, “`std::thread`”, “Qt6 GUI and async GUI design” or “basic understanding of Bitcoin mining and the Bitcoin Core RPC interface”.
-      value: |
-        * Compiling Bitcoin Core from source
-        * Running the C++ unit tests and the Python functional tests
-        * ...
-  - type: textarea
-    attributes:
-      label: Guidance for new contributors
-      description: Please leave this to automatically add the footer for new contributors
-      value: |
-        Want to work on this issue?
-
-        For guidance on contributing, please read [CONTRIBUTING.md](https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md) before opening your pull request.
-
+      label: ระดับความยาก
+      description: เช่น ง่าย, ปานกลาง, ยาก
+      placeholder: ง่าย
+    validations:
+      required: false

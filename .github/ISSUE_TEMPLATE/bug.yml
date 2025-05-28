@@ -1,93 +1,79 @@
 name: Bug report
-description: Submit a new bug report.
-labels: [bug]
+description: สร้างรายงานบั๊กเพื่อช่วยเราในการปรับปรุง
+title: "[Bug]: "
+labels: ["bug"]
+assignees:
+  - kirati999
 body:
   - type: markdown
     attributes:
       value: |
-        ## This issue tracker is only for technical issues related to Bitcoin Core.
-
-        * General bitcoin questions and/or support requests should use Bitcoin StackExchange at https://bitcoin.stackexchange.com.
-        * For reporting security issues, please read instructions at https://bitcoincore.org/en/contact/.
-        * If the node is "stuck" during sync or giving "block checksum mismatch" errors, please ensure your hardware is stable by running `memtest` and observe CPU temperature with a load-test tool such as `linpack` before creating an issue.
-
-        ----
-  - type: checkboxes
+        ขอบคุณสำหรับการรายงานบั๊ก! โปรดกรอกข้อมูลให้ครบถ้วนเพื่อให้เราสามารถช่วยคุณได้เร็วที่สุด
+  - type: input
+    id: contact
     attributes:
-      label: Is there an existing issue for this?
-      description: Please search to see if an issue already exists for the bug you encountered.
-      options:
-      - label: I have searched the existing issues
-        required: true
+      label: ช่องทางการติดต่อ
+      description: หากเราต้องการข้อมูลเพิ่มเติม เราจะติดต่อคุณได้ทางไหน?
+      placeholder: ตัวอย่างเช่น อีเมลหรือชื่อผู้ใช้ GitHub
+    validations:
+      required: false
   - type: textarea
-    id: current-behaviour
+    id: what-happened
     attributes:
-      label: Current behaviour
-      description: Tell us what went wrong
+      label: เกิดอะไรขึ้น?
+      description: โปรดอธิบายว่าเกิดอะไรขึ้น รวมถึงสิ่งที่คุณคาดว่าจะเกิดขึ้น
+      placeholder: โปรดระบุรายละเอียดให้มากที่สุด
     validations:
       required: true
   - type: textarea
-    id: expected-behaviour
+    id: steps-to-reproduce
     attributes:
-      label: Expected behaviour
-      description: Tell us what you expected to happen
-    validations:
-      required: true
-  - type: textarea
-    id: reproduction-steps
-    attributes:
-      label: Steps to reproduce
+      label: ขั้นตอนในการทำให้เกิดบั๊ก
       description: |
-        Tell us how to reproduce your bug. Please attach related screenshots if necessary.
-        * Run-time or compile-time configuration options
-        * Actions taken
+        กรุณาระบุขั้นตอนที่ชัดเจนเพื่อให้เราสามารถทำซ้ำปัญหาได้
+        ตัวอย่างเช่น:
+          1. ไปที่หน้า…
+          2. คลิกที่ปุ่ม…
+          3. เลื่อนไปที่…
+          4. เห็นข้อผิดพลาด…
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
     validations:
       required: true
   - type: textarea
-    id: logs
+    id: screenshots
     attributes:
-      label: Relevant log output
-      description: |
-        Please copy and paste any relevant log output or attach a debug log file.
-
-        You can find the debug.log in your [data dir.](https://github.com/bitcoin/bitcoin/blob/master/doc/files.md#data-directory-location)
-
-        Please be aware that the debug log might contain personally identifying information.
+      label: ภาพหน้าจอ
+      description: หากมีภาพหน้าจอโปรดแนบไว้ด้วย
+      placeholder: แนบภาพหน้าจอโดยลากไฟล์มาวางที่นี่
     validations:
       required: false
   - type: dropdown
-    attributes:
-      label: How did you obtain Bitcoin Core
-      multiple: false
-      options:
-        - Compiled from source
-        - Pre-built binaries
-        - Package manager
-        - Other
-    validations:
-      required: true
-  - type: input
-    id: core-version
-    attributes:
-      label: What version of Bitcoin Core are you using?
-      description: Run `bitcoind --version` or in Bitcoin-QT use `Help > About Bitcoin Core`
-      placeholder: e.g. v24.0.1 or master@e1bf547
-    validations:
-      required: true
-  - type: input
     id: os
     attributes:
-      label: Operating system and version
-      placeholder: e.g. "MacOS Ventura 13.2" or "Ubuntu 22.04 LTS"
+      label: ระบบปฏิบัติการ
+      description: ระบบปฏิบัติการที่คุณใช้งาน
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - อื่นๆ
     validations:
       required: true
-  - type: textarea
-    id: machine-specs
+  - type: input
+    id: browser
     attributes:
-      label: Machine specifications
-      description: |
-        What are the specifications of the host machine?
-        e.g. OS/CPU and disk type, network connectivity
+      label: เบราว์เซอร์ (ถ้าเกี่ยวข้อง)
+      description: หากเป็นปัญหาที่เกี่ยวข้องกับเว็บ ให้ระบุเบราว์เซอร์ที่ใช้งาน
+      placeholder: เช่น Chrome, Safari, Firefox ฯลฯ
     validations:
       required: false
-
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: ข้อมูลเพิ่มเติม
+      description: ใส่ข้อมูลบริบทอื่นๆ ที่เกี่ยวข้องกับปัญหานี้
+    validations:
+      required: false

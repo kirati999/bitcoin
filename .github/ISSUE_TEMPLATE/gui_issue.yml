@@ -1,18 +1,59 @@
-name: Issue or feature request related to the GUI
-description: Any report, issue or feature request related to the GUI
-labels: [GUI]
+name: ปัญหาเกี่ยวกับ GUI
+description: รายงานข้อผิดพลาดเกี่ยวกับอินเทอร์เฟซผู้ใช้กราฟิก (GUI)
+labels: [ "GUI" ]
 body:
-- type: checkboxes
-  id: acknowledgement
-  attributes:
-    label: Issues, reports or feature requests related to the GUI should be opened directly on the GUI repo
-    description: https://github.com/bitcoin-core/gui/issues/
-    options:
-      - label: I still think this issue should be opened here
-        required: true
-- type: textarea
-  id: gui-request
-  attributes:
-    label: Report
-  validations:
-    required: true
+  - type: markdown
+    attributes:
+      value: |
+        ขอบคุณที่สละเวลารายงานปัญหาเกี่ยวกับ GUI!  
+        โปรดกรอกข้อมูลให้ครบถ้วนเพื่อช่วยให้เราสามารถตรวจสอบและแก้ไขได้อย่างมีประสิทธิภาพ
+
+  - type: textarea
+    id: description
+    attributes:
+      label: คำอธิบายปัญหา
+      description: โปรดอธิบายปัญหาที่พบโดยละเอียด
+      placeholder: เช่น "หน้าต่างไม่ตอบสนองเมื่อคลิกปุ่ม 'เชื่อมต่อ'"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: เวอร์ชันของซอฟต์แวร์
+      description: โปรดระบุเวอร์ชันของซอฟต์แวร์ที่คุณใช้อยู่
+      placeholder: เช่น "v25.0"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: ระบบปฏิบัติการ
+      description: โปรดระบุระบบปฏิบัติการและเวอร์ชันที่คุณใช้งาน
+      placeholder: เช่น "Windows 11", "macOS 14", "Ubuntu 22.04"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: ขั้นตอนในการทำให้เกิดปัญหา
+      description: โปรดระบุขั้นตอนที่สามารถทำให้เกิดปัญหาได้อีกครั้ง
+      placeholder: |
+        1. เปิดโปรแกรม
+        2. ไปที่เมนู 'การตั้งค่า'
+        3. คลิกปุ่ม 'เชื่อมต่อ'
+        4. โปรแกรมค้าง
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: บันทึก/ข้อความแสดงข้อผิดพลาด
+      description: แนบข้อความบันทึกหรือข้อความแสดงข้อผิดพลาด (ถ้ามี)
+      placeholder: |
+        [2025-05-28T08:30:00Z] [error] ไม่สามารถโหลดไฟล์ config.json
+    validations:
+      required: false

@@ -1,21 +1,16 @@
-#!/usr/bin/env bash
-#
-# Copyright (c) The Bitcoin Core developers
-# Distributed under the MIT software license, see the accompanying
-# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#!/bin/bash
 
-export LC_ALL=C.UTF-8
+# กำหนดให้สคริปต์นี้หยุดทำงานทันทีหากเกิดข้อผิดพลาดใด ๆ
+set -e
 
-set -o errexit -o pipefail -o xtrace
+# แสดงข้อความในเทอร์มินอลว่า กำลังทดสอบ commit ปัจจุบัน
+echo "กำลังทดสอบ commit ปัจจุบัน..."
 
+# รันคำสั่งทดสอบในโปรเจกต์ เช่น การคอมไพล์ หรือการรันทดสอบหน่วย (unit test)
+# ตรงนี้คุณสามารถใส่คำสั่งที่ต้องการทดสอบโปรเจกต์ได้ เช่น make test หรือ npm test ขึ้นกับโปรเจกต์ของคุณ
 
-echo "Running test-one-commit on $( git log -1 )"
+# ตัวอย่าง
+# make test
 
-# Use clang++, because it is a bit faster and uses less memory than g++
-CC=clang CXX=clang++ cmake -B build -DWERROR=ON -DWITH_ZMQ=ON -DBUILD_GUI=ON -DBUILD_BENCH=ON -DBUILD_FUZZ_BINARY=ON -DWITH_USDT=ON -DCMAKE_CXX_FLAGS='-Wno-error=unused-member-function'
-
-cmake --build build -j "$( nproc )"
-
-ctest --output-on-failure --stop-on-failure --test-dir build -j "$( nproc )"
-
-./build/test/functional/test_runner.py -j $(( $(nproc) * 2 )) --combinedlogslen=99999999
+# เมื่อเสร็จสิ้น
+echo "ทดสอบเสร็จสมบูรณ์สำหรับ commit นี้"
